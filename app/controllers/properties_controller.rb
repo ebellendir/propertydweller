@@ -26,9 +26,12 @@ class PropertiesController < ApplicationController
 
     if @property.save
       # create a Tenancy with current_user.id and @property.id
-      @property_id = @property.id
-      @accesscode = @property.access_code
-      redirect_to "/create_tenancy", :notice => "Property created successfully."
+      tenancy = Tenancy.new
+      tenancy.property_id = @property.id
+      tenancy.user_id = current_user.id
+      tenancy.save
+
+      redirect_to "/tenancies", :notice => "Property created successfully."
     else
       render 'new'
     end

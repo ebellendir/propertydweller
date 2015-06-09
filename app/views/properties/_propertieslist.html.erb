@@ -36,7 +36,7 @@
                         <form action="/create_tenancy" method="post">
                          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                          <div class="form-group">
-                           <input type="text" placeholder="Access Code" class="form-control" name="access_code" value="<%= @accesscode %>">
+                           <input type="text" placeholder="Access Code" class="form-control" name="access_code">
                            <input type="hidden" name="property_id" value="<%= property.id %>">
                          </div>
                        </form>

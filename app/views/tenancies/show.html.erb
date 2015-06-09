@@ -4,7 +4,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Tenancy #<%= @tenancy.id %></h3>
+        <h3 class="panel-title"><%= @tenancy.property.property_name %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -16,20 +16,20 @@
               <dt>User</dt>
               <dd><%= @tenancy.user_id %></dd>
 
-              <dt>City</dt>
-              <dd><%= @tenancy.city %></dd>
-
-              <dt>State</dt>
-              <dd><%= @tenancy.state %></dd>
-
-              <dt>Zipcode</dt>
-              <dd><%= @tenancy.zipcode %></dd>
-
               <dt>Street number</dt>
-              <dd><%= @tenancy.street_number %></dd>
+              <dd><%= @tenancy.property.street_number %></dd>
 
               <dt>Street name</dt>
-              <dd><%= @tenancy.street_name %></dd>
+              <dd><%= @tenancy.property.street_name %></dd>
+
+              <dt>City</dt>
+              <dd><%= @tenancy.property.city %></dd>
+
+              <dt>State</dt>
+              <dd><%= @tenancy.property.state %></dd>
+
+              <dt>Zipcode</dt>
+              <dd><%= @tenancy.property.zip %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">

@@ -12,12 +12,12 @@ class TenanciesController < ApplicationController
   end
 
   def create
-    if @accesscode == @property.access_code
 
-      @tenancy = Tenancy.new
-      @tenancy.property_id = params[:property_id]
-      @tenancy.user_id = current_user.id
+    @tenancy = Tenancy.new
+    @tenancy.property_id = params[:property_id]
+    @tenancy.user_id = current_user.id
 
+    if params[:access_code] == @tenancy.property.access_code
       if @tenancy.save
         redirect_to "/tenancies", :notice => "Tenancy created successfully."
       else
@@ -25,7 +25,7 @@ class TenanciesController < ApplicationController
       end
 
     else
-      redirect_to "/properties/:id", :notice => "The Access Code is incorrect"
+      redirect_to "/properties/#{@tenancy.property.id}", :notice => "The Access Code is incorrect"
     end
   end
 
