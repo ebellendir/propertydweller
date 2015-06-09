@@ -1,0 +1,70 @@
+<!-- Validation failure messages -->
+
+<% if @blog.errors.any? %>
+<% @blog.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Blog</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_blog" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for property_id -->
+          <div class="form-group">
+            <label for="property_id" class="col-sm-2 control-label">
+              Property
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @blog.property_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for blog_title -->
+          <div class="form-group">
+            <label for="blog_title" class="col-sm-2 control-label">
+              Blog title
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="blog_title" name="blog_title" placeholder="Blog title" class="form-control" value="<%= @blog.blog_title %>">
+            </div>
+          </div>
+
+          <!-- Label and input for blog_content -->
+          <div class="form-group">
+            <label for="blog_content" class="col-sm-2 control-label">
+              Blog content
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="blog_content" name="blog_content" placeholder="Blog content" class="form-control" value="<%= @blog.blog_content %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Blog
+              </button>
+              or
+              <a href="/blogs">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

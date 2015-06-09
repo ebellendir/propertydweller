@@ -1,0 +1,111 @@
+<!-- Validation failure messages -->
+
+<% if @tenancy.errors.any? %>
+  <% @tenancy.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Tenancy #<%= @tenancy.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_tenancy/<%= @tenancy.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for property_id -->
+          <div class="form-group">
+            <label for="property_id" class="col-sm-2 control-label">
+              Property
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @tenancy.property_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @tenancy.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for city -->
+          <div class="form-group">
+            <label for="city" class="col-sm-2 control-label">
+              City
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @tenancy.city %>">
+            </div>
+          </div>
+
+          <!-- Label and input for state -->
+          <div class="form-group">
+            <label for="state" class="col-sm-2 control-label">
+              State
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @tenancy.state %>">
+            </div>
+          </div>
+
+          <!-- Label and input for zipcode -->
+          <div class="form-group">
+            <label for="zipcode" class="col-sm-2 control-label">
+              Zipcode
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control" value="<%= @tenancy.zipcode %>">
+            </div>
+          </div>
+
+          <!-- Label and input for street_number -->
+          <div class="form-group">
+            <label for="street_number" class="col-sm-2 control-label">
+              Street number
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="street_number" name="street_number" placeholder="Street number" class="form-control" value="<%= @tenancy.street_number %>">
+            </div>
+          </div>
+
+          <!-- Label and input for street_name -->
+          <div class="form-group">
+            <label for="street_name" class="col-sm-2 control-label">
+              Street name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="street_name" name="street_name" placeholder="Street name" class="form-control" value="<%= @tenancy.street_name %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update Tenancy
+              </button>
+              or
+              <a href="/tenancies/<%= @tenancy.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->

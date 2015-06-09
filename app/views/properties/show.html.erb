@@ -1,0 +1,58 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @property.property_name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Property pic</dt>
+              <dd><%= @property.property_pic %></dd>
+
+              <dt>Zip</dt>
+              <dd><%= @property.zip %></dd>
+
+              <dt>City</dt>
+              <dd><%= @property.city %></dd>
+
+              <dt>State</dt>
+              <dd><%= @property.state %></dd>
+
+              <dt>Street name</dt>
+              <dd><%= @property.street_name %></dd>
+
+              <dt>Street number</dt>
+              <dd><%= @property.street_number %></dd>
+
+              <dt>Access code</dt>
+              <dd><%= @property.access_code %></dd>
+
+              <dt>Prop type</dt>
+              <dd><%= @property.prop_type_id %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/properties" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/properties/<%= @property.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_property/<%= @property.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

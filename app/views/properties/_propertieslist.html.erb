@@ -1,0 +1,52 @@
+      <div class="bs-example" data-example-id="hoverable-table">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Property Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Join</th>
+            </tr>
+          </thead>
+          <% @properties.each do |property| %>
+          <tbody>
+            <tr>
+              <th width="300 px"><%= property.property_name %></th>
+              <td width="300 px"><%= property.street_number %> <%= property.street_name %> </td>
+              <td width="200 px"><%= property.city %></td>
+              <td width="75 px"><%= property.state %></td>
+              <td width="75 px"><%= property.zip %></td>
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                  <i class="fa fa-user-plus"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Enter the Access Code Here</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/create_tenancy" method="post">
+                         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                         <div class="form-group">
+                           <input type="text" placeholder="Access Code" class="form-control" name="access_code" value="<%= @accesscode %>">
+                           <input type="hidden" name="property_id" value="<%= property.id %>">
+                         </div>
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+             </td>
+           </tr>
+         </tbody>
+         <% end %>
+       </table>
