@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610050530) do
+ActiveRecord::Schema.define(version: 20150610152249) do
+
+  create_table "Properties", force: :cascade do |t|
+    t.string   "picture"
+    t.string   "property_name"
+    t.integer  "zip"
+    t.string   "city"
+    t.string   "state"
+    t.string   "street_name"
+    t.integer  "street_number"
+    t.string   "access_code"
+    t.string   "prop_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "property_id"
@@ -23,20 +37,6 @@ ActiveRecord::Schema.define(version: 20150610050530) do
 
   create_table "prop_types", force: :cascade do |t|
     t.string   "layout_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "properties", force: :cascade do |t|
-    t.string   "property_pic"
-    t.string   "property_name"
-    t.integer  "zip"
-    t.string   "city"
-    t.string   "state"
-    t.string   "street_name"
-    t.integer  "street_number"
-    t.string   "access_code"
-    t.string   "prop_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

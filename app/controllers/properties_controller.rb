@@ -13,7 +13,7 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new
-    @property.property_pic = params[:property_pic]
+    @property.picture = params[:picture]
     @property.property_name = params[:property_name]
     @property.zip = params[:zip]
     @property.city = params[:city]
@@ -44,7 +44,7 @@ class PropertiesController < ApplicationController
   def update
     @property = Property.find(params[:id])
 
-    @property.property_pic = params[:picture]
+    @property.picture = params[:picture]
     @property.property_name = params[:property_name]
     @property.zip = params[:zip]
     @property.city = params[:city]

@@ -10,26 +10,18 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Property</dt>
-              <dd><%= @tenancy.property_id %></dd>
 
-              <dt>User</dt>
-              <dd><%= @tenancy.user_id %></dd>
+              <dd><img src="<%= @tenancy.property.picture %>" class="img-responsive" ></dd>
+              <dd></dd>
+              <dt>Address</dt>
+              <dd><%= @tenancy.property.street_number %> <%= @tenancy.property.street_name %></dd>
+              <dd><%= @tenancy.property.city %>, <%= @tenancy.property.state %> <%= @tenancy.property.zip %></dd>
 
-              <dt>Street number</dt>
-              <dd><%= @tenancy.property.street_number %></dd>
+              <dt>Users</dt>
 
-              <dt>Street name</dt>
-              <dd><%= @tenancy.property.street_name %></dd>
-
-              <dt>City</dt>
-              <dd><%= @tenancy.property.city %></dd>
-
-              <dt>State</dt>
-              <dd><%= @tenancy.property.state %></dd>
-
-              <dt>Zipcode</dt>
-              <dd><%= @tenancy.property.zip %></dd>
+              <%# @tenancy.user.each do |user| %>
+              <dd><%= @tenancy.user.user_name %></dd>
+              <%# end %>
 
             </dl>
             <div class="btn-group btn-group-justified">
