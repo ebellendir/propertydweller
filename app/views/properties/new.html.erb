@@ -18,7 +18,7 @@
         <h3 class="panel-title">Add Property</h3>
       </div>
       <div class="panel-body">
-        <form action="/create_property" method="post" class="form-horizontal">
+        <form action="/create_property" method="post" class="form-horizontal" enctype="multipart/form-data">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -28,7 +28,7 @@
               Property pic
             </label>
             <div class="col-sm-10">
-              <input type="text" id="property_pic" name="property_pic" placeholder="Property pic" class="form-control" value="<%= @property.property_pic %>">
+              <input type="file" id="property_pic" name="property_pic" placeholder="Property pic" class="form-horizontal" value="<%= @property.property_pic %>">
             </div>
           </div>
 

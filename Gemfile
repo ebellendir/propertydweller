@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 #Devise for user login
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'devise'
+gem 'carrierwave'
 
 gem 'ransack'
 

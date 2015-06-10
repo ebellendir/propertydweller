@@ -15,10 +15,10 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Property #<%= @property.id %></h3>
+        <h3 class="panel-title">Edit <%= @property.property_name %></h3>
       </div>
       <div class="panel-body">
-        <form action="/update_property/<%= @property.id %>" method="post" class="form-horizontal">
+        <form action="/update_property/<%= @property.id %>" method="post" class="form-horizontal" enctype="multipart/form-data">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -28,7 +28,7 @@
               Property pic
             </label>
             <div class="col-sm-10">
-              <input type="text" id="property_pic" name="property_pic" placeholder="Property pic" class="form-control" value="<%= @property.property_pic %>">
+              <input type="file" id="property_pic" name="property_pic" placeholder="Property pic" class="form-horizontal" value="<%= @property.property_pic %>">
             </div>
           </div>
 

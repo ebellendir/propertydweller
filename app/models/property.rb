@@ -1,4 +1,5 @@
 class Property < ActiveRecord::Base
+  mount_uploader :picture, PictureUploader
 
   validates :property_name, :presence => true, :uniqueness => true
   validates :access_code, :presence => true, :uniqueness => true

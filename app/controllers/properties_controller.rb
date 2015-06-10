@@ -21,7 +21,7 @@ class PropertiesController < ApplicationController
     @property.street_name = params[:street_name]
     @property.street_number = params[:street_number]
     @property.access_code = ('a'..'z').to_a.shuffle[0,8].join
-    #Need to add condition that states this access code needs to be unique
+
     @property.prop_type_id = params[:prop_type_id]
 
     if @property.save
@@ -44,7 +44,7 @@ class PropertiesController < ApplicationController
   def update
     @property = Property.find(params[:id])
 
-    @property.property_pic = params[:property_pic]
+    @property.property_pic = params[:picture]
     @property.property_name = params[:property_name]
     @property.zip = params[:zip]
     @property.city = params[:city]
