@@ -31,7 +31,6 @@ Rails.application.routes.draw do
 
   # Routes for the Tenancy resource:
   # CREATE
-  get "/tenancies/new", :controller => "tenancies", :action => "new"
   post "/create_tenancy", :controller => "tenancies", :action => "create"
 
   # READ
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
   get "/tenancies/:id", :controller => "tenancies", :action => "show"
 
   # UPDATE
-  get "/tenancies/:id/edit", :controller => "tenancies", :action => "edit"
   post "/update_tenancy/:id", :controller => "tenancies", :action => "update"
 
   # DELETE

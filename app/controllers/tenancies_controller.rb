@@ -1,4 +1,13 @@
 class TenanciesController < ApplicationController
+  #before_action :check_if_member, only: [:index, :show, :update, :destroy]
+
+  #def check_if_member
+   # tenancy = Tenancy.find(params[:id])
+    #if tenancy.user_id != current_user.id
+     # redirect_to "/tenancies", notice: "You do not have access"
+    #end
+  #end
+
   def index
     @tenancies = current_user.tenancies
   end
@@ -7,30 +16,20 @@ class TenanciesController < ApplicationController
     @tenancy = Tenancy.find(params[:id])
   end
 
-  def new
-    @tenancy = Tenancy.new
-  end
-
   def create
-
     @tenancy = Tenancy.new
     @tenancy.property_id = params[:property_id]
     @tenancy.user_id = current_user.id
 
     if params[:access_code] == @tenancy.property.access_code
       if @tenancy.save
-        redirect_to "/tenancies", :notice => "Tenancy created successfully."
+        redirect_to "/tenancies", :notice => "You successfully joined the property"
       else
-        render 'new'
+        redirect_to "/properties", :notice => "Save Error, Try Again"
       end
-
     else
-      redirect_to "/properties/#{@tenancy.property.id}", :notice => "The Access Code is incorrect"
+      redirect_to "/properties", :notice => "The Access Code is incorrect"
     end
-  end
-
-  def edit
-    @tenancy = Tenancy.find(params[:id])
   end
 
   def update
@@ -42,7 +41,7 @@ class TenanciesController < ApplicationController
     if @tenancy.save
       redirect_to "/tenancies", :notice => "Tenancy updated successfully."
     else
-      render 'edit'
+      render '/properties'
     end
   end
 
