@@ -3,10 +3,6 @@ class PropertiesController < ApplicationController
     @properties = Property.all
   end
 
-  def show
-    @property = Property.find(params[:id])
-  end
-
   def new
     @property = Property.new
   end

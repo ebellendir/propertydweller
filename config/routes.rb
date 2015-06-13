@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
    # This is a conditional route for devise.
    authenticated :user do
-    root to: "properties#index", as: :authenticated_root
+    root to: "tenancies#index", as: :authenticated_root
   end
 
   unauthenticated do
@@ -68,7 +68,6 @@ Rails.application.routes.draw do
 
   # READ
   get "/properties", :controller => "properties", :action => "index"
-  get "/properties/:id", :controller => "properties", :action => "show"
 
   # UPDATE
   get "/properties/:id/edit", :controller => "properties", :action => "edit"
